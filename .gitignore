@@ -1,0 +1,28 @@
+# CMake / сборка
+build/
+cmake-build-*/
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+Makefile
+*.cmake
+!CMakeLists.txt
+
+# Бинарники и объектники
+benchmark_cpp
+*.o
+*.a
+*.so
+*.dylib
+*.exe
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*~
+
+# QC-графики (генерируются при запуске бенчмарка)
+*.png
