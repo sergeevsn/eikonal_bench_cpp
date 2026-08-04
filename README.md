@@ -18,10 +18,18 @@ C++-версия бенчмарка для сравнения солверов �
 
 ## Результаты QC (картинки)
 
-После запуска в каталоге `build/` сохраняются:
+Сейчас в репозитории лежат:
 
 * модель: `model_qc_xz.png`
 * QC сейсмограммы: `qc_combined_row.png`
+
+`model_qc_xz.png`:
+
+![model_qc_xz](model_qc_xz.png)
+
+`qc_combined_row.png`:
+
+![qc_combined_row](qc_combined_row.png)
 
 ## Быстрый старт
 
@@ -42,7 +50,7 @@ cmake --build . -j
 ./benchmark_cpp ../benchmark.ini
 ```
 
-После запуска в `build/` будут сохранены:
+После запуска в `build/` будут сохранены (можно скопировать в корень проекта для README):
 
 * `model_qc_xz.png`
 * `qc_combined_row.png`

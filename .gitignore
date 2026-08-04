@@ -26,3 +26,5 @@ benchmark_cpp
 
 # QC-графики (генерируются при запуске бенчмарка)
 *.png
+!model_qc_xz.png
+!qc_combined_row.png
