@@ -42,12 +42,11 @@ void apply_qc_axis_style(matplot::axes_handle ax, bool equal_aspect = false) {
 }
 
 // Ручная раскладка панелей: без больших полей matplot subplot по умолчанию.
-std::array<float, 4> qc_panel_position(size_t col, size_t ncols) {
+std::array<float, 4> qc_panel_position(size_t col, size_t ncols, float gap = 0.025f) {
     const float left = 0.05f;
     const float bottom = 0.14f;
     const float top = 0.90f;
     const float right = 0.98f;
-    const float gap = 0.025f;
     const float w = (right - left - gap * static_cast<float>(ncols - 1)) / static_cast<float>(ncols);
     const float x = left + static_cast<float>(col) * (w + gap);
     return {x, bottom, w, top - bottom};
@@ -284,7 +283,9 @@ void plot_model_qc(
     f->size(1400, 520);
     f->font_size(kQcFontSize);
 
-    auto ax0 = subplot(f, qc_panel_position(0, 2));
+    constexpr float kModelPanelGap = 0.08f;
+
+    auto ax0 = subplot(f, qc_panel_position(0, 2, kModelPanelGap));
     apply_qc_axis_style(ax0);
     imagesc(ax0, 0, x_max, 0, z_max, v_slice);
     ax0->colormap(palette::viridis());
@@ -295,7 +296,7 @@ void plot_model_qc(
     ax0->cblabel("Vp (m/s)");
     colorbar(ax0);
 
-    auto ax1 = subplot(f, qc_panel_position(1, 2));
+    auto ax1 = subplot(f, qc_panel_position(1, 2, kModelPanelGap));
     apply_qc_axis_style(ax1);
     imagesc(ax1, 0, x_max, 0, z_max, r_slice);
     ax1->colormap(palette::gray());
